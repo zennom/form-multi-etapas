@@ -1,0 +1,12 @@
+{{>partials/layout }}
+
+<h2>Etapa 3: Resumo</h2>
+<p><strong>Nome:</strong> {{form.nome}}</p>
+<p><strong>E-mail:</strong> {{form.email}}</p>
+<p><strong>Endereço:</strong> {{form.endereco}}</p>
+<p><strong>Cidade:</strong> {{form.cidade}}</p>
+<form action="/submit" method="POST">
+  <button type="submit">Enviar</button>
+</form>
+
+

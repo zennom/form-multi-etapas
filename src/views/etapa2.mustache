@@ -1,9 +1,11 @@
-{{>partials/layout }}
+{{>partials/header}}
 
 <h2>Etapa 2: Endereço</h2>
 <form action="/etapa2" method="POST">
-  <input type="hidden" name="id" value="{{form.id}}">
-  <input type="text" name="endereco" placeholder="Endereço" value="{{form.endereco}}" required>
-  <input type="text" name="cidade" placeholder="Cidade" value="{{form.cidade}}" required>
-  <button type="submit">Próximo</button>
+  <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+  <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+  <button type="button" onclick="nextStep()">Próximo</button>
+  <button type="button" onclick="previousStep()">Voltar</button>
 </form>
+
+{{>partials/footer}}

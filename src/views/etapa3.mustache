@@ -1,12 +1,12 @@
-{{>partials/layout }}
+{{>partials/header}}
 
 <h2>Etapa 3: Resumo</h2>
-<p><strong>Nome:</strong> {{form.nome}}</p>
-<p><strong>E-mail:</strong> {{form.email}}</p>
-<p><strong>Endereço:</strong> {{form.endereco}}</p>
-<p><strong>Cidade:</strong> {{form.cidade}}</p>
+<div id="resumo">
+  <!-- O conteúdo será injetado dinamicamente pelo JavaScript -->
+</div>
+
 <form action="/submit" method="POST">
   <button type="submit">Enviar</button>
 </form>
 
-
+{{>partials/footer}}

@@ -19,9 +19,9 @@ function nextStep() {
     let nextPage = '';
 
     if (window.location.pathname.includes('etapa1')) {
-        nextPage = 'etapa2.html';
+        nextPage = '/etapa2';
     } else if (window.location.pathname.includes('etapa2')) {
-        nextPage = 'etapa3.html';
+        nextPage = '/etapa3';
     }
 
     if (nextPage) {
@@ -31,13 +31,14 @@ function nextStep() {
 
 // Voltar para a etapa anterior
 function previousStep() {
+    
     saveData();
     let prevPage = '';
 
     if (window.location.pathname.includes('etapa3')) {
-        prevPage = 'etapa2.html';
+        prevPage = '/etapa2'; // Verifique se /etapa2 renderiza corretamente
     } else if (window.location.pathname.includes('etapa2')) {
-        prevPage = 'etapa1.html';
+        prevPage = '/etapa1'; // Verifique se /etapa1 renderiza corretamente
     }
 
     if (prevPage) {
@@ -47,10 +48,10 @@ function previousStep() {
 
 // Exibir dados resumidos na etapa 3
 function showResumo() {
-    const nome = sessionStorage.getItem('nome');
-    const email = sessionStorage.getItem('email');
-    const endereco = sessionStorage.getItem('endereco');
-    const cidade = sessionStorage.getItem('cidade');
+    const nome = sessionStorage.getItem('nome') || "Não informado";
+    const email = sessionStorage.getItem('email') || "Não informado";
+    const endereco = sessionStorage.getItem('endereco') || "Não informado";
+    const cidade = sessionStorage.getItem('cidade') || "Não informado";
     
     const resumo = `
         <p><strong>Nome:</strong> ${nome}</p>
@@ -58,8 +59,14 @@ function showResumo() {
         <p><strong>Endereço:</strong> ${endereco}</p>
         <p><strong>Cidade:</strong> ${cidade}</p>
     `;
-    
-    document.getElementById('resumo').innerHTML = resumo;
+    const resumoDiv = document.getElementById('resumo');
+    if (resumoDiv) {
+        resumoDiv.innerHTML = resumo;
+    }
+}
+//Essa função já é chamada no final do script.js, na verificação:
+if (window.location.pathname.includes('etapa3')) {
+    showResumo();
 }
 
 // Enviar o formulário (por exemplo, para um backend)
